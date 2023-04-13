@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ state.count }}
+    {{ state.count }}啥玩意？
   </div>
 </template>
 
