@@ -1,15 +1,32 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+  "easycom": {
+		"custom": {
+      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue" 
+		}
+	},
+	"pages": [
 		{
-			"path": "pages/index/index",
+			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": ""
+			}
+		},
+    {
+			"path": "pages/account/index",
+			"style": {
+				"navigationBarTitleText": "账户"
+			}
+		},
+    {
+			"path": "pages/upload/index",
+			"style": {
+				"navigationBarTitleText": "上传"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "Youle",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	}
