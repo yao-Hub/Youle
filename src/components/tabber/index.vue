@@ -1,27 +1,46 @@
 <template>
   <u-tabbar
-    :value="value"
+    :value="realValue"
     fixed
     placeholder
-    safeAreaInsetBottom
-    v-bind="options"
-    @change="tabbarChange">
-    <!-- <u-tabbar-item v-for="item in tabber" :key="item.name"></u-tabbar-item> -->
+    safeAreaInsetBottom>
+    <template v-for="item in tabber" :key="item.name">
+      <u-tabbar-item
+        :name="item.name"
+        :icon="item.icon"
+        :text="item.text"
+        @change="change"
+        @click="tabbarClick"></u-tabbar-item>
+    </template>
   </u-tabbar>
 </template>
 
 <script setup lang="ts">
-// import {tabber} from './config';
-defineProps<{
-  value?: string
-  options?: Object
-}>()
+  import { reactive, computed, ref } from 'vue'
+  import {tabber} from './config.js';
 
-const emit = defineEmits(['change'])
+  // interface Props {
+  //   value?:string,
+  //   options?: Object
+  // }
+  // const props = withDefaults(defineProps<Props>(), {
+  //   value: 'home',
+  // });
 
-function tabbarChange() {
-  emit('change')
-}
+  const realValue = ref('home');
+
+  // const tabbarValue = computed(() => props.value);
+
+  const emit = defineEmits(['tabClick']);
+
+  function tabbarClick(e: string) {
+    console.log('tabbarClick', e);
+    emit('tabClick', e);
+  }
+
+  function change(e: string) {
+    console.log('change', e);
+  }
 </script>
 
 <style lang="scss" scoped></style>

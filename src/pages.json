@@ -6,21 +6,9 @@
 	},
 	"pages": [
 		{
-			"path": "pages/home/index",
+			"path": "pages/main/index",
 			"style": {
 				"navigationBarTitleText": ""
-			}
-		},
-    {
-			"path": "pages/account/index",
-			"style": {
-				"navigationBarTitleText": "账户"
-			}
-		},
-    {
-			"path": "pages/upload/index",
-			"style": {
-				"navigationBarTitleText": "上传"
 			}
 		}
 	],
