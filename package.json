@@ -52,6 +52,7 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-3070920230324001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3070920230324001",
     "@nuxt/kit": "^3.4.0",
+    "@ttou/uview-typings": "^2.0.4",
     "mini-types": "^0.1.7",
     "miniprogram-api-typings": "^3.9.1",
     "rollup": "^3.20.2",
@@ -67,6 +68,7 @@
     "@dcloudio/uni-stacktracey": "3.0.0-3070920230324001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3070920230324001",
     "sass": "^1.62.0",
+    "sass-loader": "^10.0.0",
     "unplugin-vue-components": "^0.24.1",
     "vite": "4.1.4"
   }

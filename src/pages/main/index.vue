@@ -1,25 +1,46 @@
 <template>
   <div>
-    1
-    <tabber @tab-click="tabClick"></tabber>
+    <home v-if="commentName === 'home'"></home>
+    <account v-if="commentName === 'account'"></account>
+    <upload v-if="commentName === 'upload'"></upload>
+    <Tabber @tab-click="tabClick"></Tabber>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
-import tabber from '@components/tabber/index.vue';
+import { ref, watch } from 'vue'
+import Tabber from '@components/tabber/index.vue';
 import home from './home/index.vue';
 import account from './account/index.vue';
-// import upload from './upload/index.vue';
+import upload from './upload/index.vue';
 
+interface componentOptions {
+  [proName: string]: {
+    title: string
+  }
+}
 
-const state = reactive({
-  value: '首页'
-})
+const componentOptions:componentOptions = {
+  home: {
+    title: '乐库'
+  },
+  account: {
+    title: '我的'
+  },
+  upload: {
+    title: '上传'
+  }
+};
+
+const commentName = ref('home');
+
+watch(commentName, (value: string) => {
+  const title = componentOptions[value].title
+  uni.setNavigationBarTitle({title});
+}, {immediate: true});
 
 function tabClick(e: string) {
-  console.log('e', e);
-  // state.value = e;
+  commentName.value = e;
 }
 </script>
 

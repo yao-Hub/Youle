@@ -12,6 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "useDefineForClassFields": true,
     "resolveJsonModule": true,
+    "allowJs": true,
     "lib": [
       "esnext",
       "dom"
@@ -19,7 +20,9 @@
     "types": [
       "@dcloudio/types",
       "miniprogram-api-typings",
-      "mini-types"
+      "mini-types",
+      "@ttou/uview-typings/v26",
+      "@ttou/uview-typings/refs"
     ],
     "baseUrl": ".",
     "paths":{
