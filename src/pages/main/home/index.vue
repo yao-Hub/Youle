@@ -32,7 +32,7 @@ const state = reactive({
 })
 
 function moreClick() {
-
+  uni.navigateTo({url: '/pages/detail/index'});
 }
 
 function itemClick(info:any) {

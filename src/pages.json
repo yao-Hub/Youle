@@ -10,6 +10,12 @@
 			"style": {
 				"navigationBarTitleText": ""
 			}
+		},
+    {
+			"path": "pages/detail/index",
+			"style": {
+				"navigationBarTitleText": "Youle"
+			}
 		}
 	],
 	"globalStyle": {
