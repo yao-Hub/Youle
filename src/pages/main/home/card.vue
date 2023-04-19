@@ -6,13 +6,7 @@
     </view>
     <view class="card__content">
       <view class="card__content__item" v-for="(item, index) in list" :key="index">
-        <view class="card__content__item__image">
-          <u-image :src='item.src' width="31vw" height="31vw"></u-image>
-          <view class="icon" v-if="item.count">
-            <u-icon name="server-fill" color="#fff"></u-icon>
-            <text>{{ item.count }}</text>
-          </view>
-        </view>
+        <ImageCard :src='item.src' width="31vw" height="31vw" :count="item.count"></ImageCard>
         <text class="hiddenText introduce">{{ item.introduceText }}</text>
         <text class="author">{{ item.author }}</text>
       </view>
@@ -21,6 +15,8 @@
 </template>
 
 <script setup lang="ts">
+import ImageCard from '@components/imageCard/index.vue';
+
 interface List {
   [index: number]: {
     src?: string
@@ -65,17 +61,6 @@ const emit = defineEmits(['more', 'itemClick'])
     &__item {
       display: flex;
       flex-direction: column;
-      &__image {
-        position: relative;
-        .icon {
-          position: absolute;
-          bottom: 5rpx;
-          left: 5rpx;
-          display: flex;
-          font-size: $uni-font-size-sm;
-          color: #fff;
-        }
-      }
       .introduce {
         font-size: $uni-font-size-base;
       }

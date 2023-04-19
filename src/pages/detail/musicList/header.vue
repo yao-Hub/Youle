@@ -29,9 +29,9 @@ const state = reactive({
     { value: 2, text: "单曲循环" },
   ],
   playIcons: [
-    '/src/components/musicList/icons/sequentialPlay.png',
-    '/src/components/musicList/icons/randomPlay.png',
-    '/src/components/musicList/icons/singleCycle.png'
+    '/static/icons/sequentialPlay.png',
+    '/static/icons/randomPlay.png',
+    '/static/icons/singleCycle.png'
   ]
 });
 const selectValue = ref(0);

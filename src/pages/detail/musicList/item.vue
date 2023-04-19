@@ -4,7 +4,7 @@
       <view class="musicList_Item__left__Non">{{ Non }}</view>
       <view class="musicList_Item__left__content">
         <text class="hiddenText" style="font-size: small;">{{ musicName }}</text>
-        <text style="font-size: 12px; color: #999;">{{ author }}</text>
+        <text class="hiddenText" style="font-size: 12px; color: #999;">{{ author }}</text>
       </view>
     </view>
     <view class="musicList_Item__right">

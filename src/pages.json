@@ -6,16 +6,10 @@
 	},
 	"pages": [
 		{
-			"path": "pages/main/index",
-			"style": {
-				"navigationBarTitleText": ""
-			}
+			"path": "pages/main/index"
 		},
     {
-			"path": "pages/detail/index",
-			"style": {
-				"navigationBarTitleText": "Youle"
-			}
+			"path": "pages/detail/index"
 		}
 	],
 	"globalStyle": {
