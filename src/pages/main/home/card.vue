@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import ImageCard from '@components/imageCard/index.vue';
 
 interface List {
   [index: number]: {

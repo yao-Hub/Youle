@@ -9,7 +9,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
-import Tabber from '@components/tabber/index.vue';
 import home from './home/index.vue';
 import account from './account/index.vue';
 

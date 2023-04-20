@@ -1,20 +1,21 @@
 <template>
-  <view class="musicList_Item">
+  <view class="musicList_Item" @click.stop="playSong(0)">
     <view class="musicList_Item__left">
       <view class="musicList_Item__left__Non">{{ Non }}</view>
       <view class="musicList_Item__left__content">
-        <text class="hiddenText" style="font-size: small;">{{ musicName }}</text>
-        <text class="hiddenText" style="font-size: 12px; color: #999;">{{ author }}</text>
+        <text class="hiddenText" :style="{fontSize: 'small', color: playType ? '#3c9cff' : '#000'}">{{ musicName }}</text>
+        <text class="hiddenText" :style="{fontSize: '12px', color: playType ? '#3c9cff': '#999'}">{{ author }}</text>
       </view>
     </view>
     <view class="musicList_Item__right">
-      <u-icon name="play-circle" size="24"></u-icon>
-      <u-icon name="more-dot-fill" size="20"></u-icon>
+      <u-icon :name="playType ? 'pause-circle' : 'play-circle'" size="24" @click="playSong(1)"></u-icon>
+      <u-icon name="more-dot-fill" size="20" @click="emit('more')"></u-icon>
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 interface props {
   Non: string | number,
   musicName: string,
@@ -25,6 +26,18 @@ withDefaults(defineProps<props>(), {
   author: '未知'
 })
 
+const playType = ref(false);
+
+const emit = defineEmits(['more'])
+
+function playSong(e: number) {
+  playType.value = !playType.value
+  if (!e) {
+    uni.navigateTo({
+      url: '/pages/detail/musicBox/index'
+    })
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -36,8 +49,11 @@ withDefaults(defineProps<props>(), {
   align-items: center;
   justify-content: space-between;
   height: 100rpx;
-  // background: red;
-  padding: 5rpx 20rpx;
+  padding: 5rpx 40rpx;
+  box-sizing: border-box;
+  &:active {
+    background-color: #f4f4f5;
+  }
   &__left {
     display: flex;
     align-items: center;

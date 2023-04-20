@@ -9,7 +9,16 @@
 			"path": "pages/main/index"
 		},
     {
-			"path": "pages/detail/index"
+			"path": "pages/detail/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+		},
+    {
+			"path": "pages/detail/musicBox/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
 		}
 	],
 	"globalStyle": {

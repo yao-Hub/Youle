@@ -1,5 +1,6 @@
 <template>
   <view>
+    <Navbar></Navbar>
     <view class="header">
       <ImageCard src='/static/demo.jpeg' width="250rpx" height="250rpx" count="1.91亿" style="flex-shrink: 0;"></ImageCard>
       <view class="right">
@@ -17,8 +18,6 @@
 
 <script lang="ts" setup>
 import musicList from './musicList/index.vue';
-import Tabber from '@components/tabber/index.vue';
-import ImageCard from '@components/imageCard/index.vue';
 
 function tabClick(e: string) {
   uni.reLaunch({
@@ -28,11 +27,15 @@ function tabClick(e: string) {
 </script>
 
 <style lang="scss" scoped>
+// 微信小程序改变深层组件样式需要把样式放在最上层父组件
+::v-deep .uni-select {
+  border: none !important;
+}
 .header {
   position: relative;
   width: 100%;
   height: 350rpx;
-  background-image: url('/static/girl.jpeg');
+  background-image: url('https://thumb.15wo.com/wallpaper/d61/ced619983898a537931d343ff1026159.jpg!0x717.jpg');
   background-color: rgba(0, 0, 0, 0.4);
   background-repeat: no-repeat;
   background-size: 100% auto;

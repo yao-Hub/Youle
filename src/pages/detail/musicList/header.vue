@@ -54,15 +54,13 @@ function change(e: number) {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .uni-select {
-  border: none !important;
-}
 .header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10rpx 0;
+  padding: 10rpx 40rpx;
+  box-sizing: border-box;
   &__left, &__right {
     display: flex;
     font-size: $uni-font-size-base;
