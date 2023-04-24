@@ -27,9 +27,7 @@ function back() {
 
 
 const goHome = () => {
-  const pages:any = getCurrentPages()
-  const homePath = pages[0].$page.path
-  uni.reLaunch({url: homePath})
+  uni.reLaunch({url: '/pages/main/index'})
 }
 
 </script>

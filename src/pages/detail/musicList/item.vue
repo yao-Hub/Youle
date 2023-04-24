@@ -1,14 +1,14 @@
 <template>
-  <view class="musicList_Item" @click.stop="playSong(0)">
-    <view class="musicList_Item__left">
+  <view class="musicList_Item">
+    <view class="musicList_Item__left" @click="playSong(0)">
       <view class="musicList_Item__left__Non">{{ Non }}</view>
       <view class="musicList_Item__left__content">
-        <text class="hiddenText" :style="{fontSize: 'small', color: playType ? '#3c9cff' : '#000'}">{{ musicName }}</text>
-        <text class="hiddenText" :style="{fontSize: '12px', color: playType ? '#3c9cff': '#999'}">{{ author }}</text>
+        <text class="hiddenText" :style="{fontSize: 'small', color: play ? '#3c9cff' : '#000'}">{{ musicName }}</text>
+        <text class="hiddenText" :style="{fontSize: '12px', color: play ? '#3c9cff': '#999'}">{{ author }}</text>
       </view>
     </view>
     <view class="musicList_Item__right">
-      <u-icon :name="playType ? 'pause-circle' : 'play-circle'" size="24" @click="playSong(1)"></u-icon>
+      <u-icon :name="play ? 'pause-circle' : 'play-circle'" size="24" @click="playSong(1)"></u-icon>
       <u-icon name="more-dot-fill" size="20" @click="emit('more')"></u-icon>
     </view>
   </view>
@@ -26,12 +26,13 @@ withDefaults(defineProps<props>(), {
   author: '未知'
 })
 
-const playType = ref(false);
+const play = ref(false);
 
 const emit = defineEmits(['more'])
 
 function playSong(e: number) {
-  playType.value = !playType.value
+  play.value = !play.value
+  
   if (!e) {
     uni.navigateTo({
       url: '/pages/detail/musicBox/index'
