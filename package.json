@@ -55,6 +55,7 @@
     "@ttou/uview-typings": "^2.0.4",
     "mini-types": "^0.1.7",
     "miniprogram-api-typings": "^3.9.1",
+    "pinia": "^2.0.35",
     "rollup": "^3.20.2",
     "uview-plus": "^3.1.29",
     "vant": "^4.1.2",

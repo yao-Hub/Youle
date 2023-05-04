@@ -1,6 +1,6 @@
 <template>
   <view class="musicList_Item">
-    <view class="musicList_Item__left" @click="playSong(0)">
+    <view class="musicList_Item__left" @click="playSong('item')">
       <view class="musicList_Item__left__Non">{{ Non }}</view>
       <view class="musicList_Item__left__content">
         <text class="hiddenText" :style="{fontSize: 'small', color: play ? '#3c9cff' : '#000'}">{{ musicName }}</text>
@@ -8,36 +8,31 @@
       </view>
     </view>
     <view class="musicList_Item__right">
-      <u-icon :name="play ? 'pause-circle' : 'play-circle'" size="24" @click="playSong(1)"></u-icon>
+      <u-icon :name="play ? 'pause-circle' : 'play-circle'" size="24" @click="playSong('icon')"></u-icon>
       <u-icon name="more-dot-fill" size="20" @click="emit('more')"></u-icon>
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+
 interface props {
   Non: string | number,
   musicName: string,
-  author?: string
+  author?: string,
+  play?: boolean
 }
 
 withDefaults(defineProps<props>(), {
-  author: '未知'
+  author: '未知',
+  play: false
 })
 
-const play = ref(false);
 
-const emit = defineEmits(['more'])
+const emit = defineEmits(['more', 'playSong'])
 
-function playSong(e: number) {
-  play.value = !play.value
-  
-  if (!e) {
-    uni.navigateTo({
-      url: '/pages/detail/musicBox/index'
-    })
-  }
+function playSong(type: string) {
+  emit('playSong', type);
 }
 </script>
 

@@ -14,7 +14,7 @@
       </view>
 
       <view class="content">
-        <view class="ring" @click="play = !play">
+        <view class="ring" @click="changePlay">
           <image src="/static/album.webp" :class="[play ? 'play': 'pause', 'rotate']"></image>
           <view class="palyIcon">
             <u-icon :name="play ? 'pause' : 'play-right-fill'" color="#FFF" size="30"></u-icon>
@@ -28,9 +28,15 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed } from 'vue';
+import { songStore } from '@/stores/song'
 
-const play = ref(true);
+const store = songStore()
+const play = computed(() => store.play)
+
+function changePlay() {
+  store.changePlay()
+}
 
 </script>
 

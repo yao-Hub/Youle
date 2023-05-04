@@ -3,12 +3,13 @@
     <Header :total="total"></Header>
     <view class="musicList_box__list">
       <Item
-        v-for="i in 10"
-        :key="i"
-        music-name="音乐音乐名音乐名音乐名音乐名音乐名音乐名音乐名音乐名音乐名名"
-        :Non="i"
-        @more="show = true"
-        @play="play">
+        v-for="(item, index) in store.musiclist"
+        :key="item.id"
+        :music-name="item.name"
+        :Non="index + 1"
+        :play="item.id === store.playSongId && store.play"
+        @more="more(item.id)"
+        @playSong="playSong($event, item.id)">
       </Item>
     </view>
 
@@ -26,9 +27,15 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { songStore } from '@/stores/song'
+
 import Header from './header.vue';
 import Item from './item.vue'
+
+const store = songStore()
+
+const nowPlayStatus = computed(() => store.play)
 
 defineProps<{
   total: string | number
@@ -37,7 +44,20 @@ defineProps<{
 
 const show = ref(false);
 
-function play() {}
+function playSong(type: string, id:number | string) {
+  const ifPlay = type === 'item' || !nowPlayStatus.value;
+  store.changeCurrentSong(id)
+  store.changePlay(ifPlay)
+  if (type === 'item') {
+    uni.navigateTo({
+      url: '/pages/detail/musicBox/index'
+    })
+  }
+}
+
+function more(id:number | string) {
+  show.value = true
+}
 
 const select = () => {
   uni.showToast({
